@@ -67,6 +67,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\Car.cs" />
+    <Compile Include="Model\ViewModel.cs" />
+    <Compile Include="Model\IDriver.cs" />
+    <Compile Include="Model\MainViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

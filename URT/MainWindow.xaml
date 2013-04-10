@@ -1,8 +1,29 @@
 ﻿<Window x:Class="URT.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:URT.Model"
         Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        
-    </Grid>
+    
+    <ItemsControl ItemsSource="{Binding Cars}" >
+        <ItemsControl.Resources>
+            <DataTemplate DataType="{x:Type local:Car}">
+                <Rectangle Fill="Firebrick" Width="10" Height="10">
+                    <Rectangle.RenderTransform>
+                        <RotateTransform Angle="{Binding Angle}"></RotateTransform>                        
+                    </Rectangle.RenderTransform>
+                </Rectangle>
+            </DataTemplate>
+        </ItemsControl.Resources>
+        <ItemsControl.ItemsPanel>
+            <ItemsPanelTemplate>
+                <Canvas />
+            </ItemsPanelTemplate>
+        </ItemsControl.ItemsPanel>
+        <ItemsControl.ItemContainerStyle>
+            <Style>
+                <Setter Property="Canvas.Left" Value="{Binding X}" />
+                <Setter Property="Canvas.Top" Value="{Binding Y}" />
+            </Style>
+        </ItemsControl.ItemContainerStyle>
+    </ItemsControl>
 </Window>
