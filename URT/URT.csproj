@@ -53,6 +53,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Model\Engine.cs" />
     <Compile Include="Model\ITrack.cs" />
     <Compile Include="ViewModel\CarViewModel.cs" />
     <Page Include="MainWindow.xaml">

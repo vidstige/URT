@@ -1,9 +1,14 @@
-﻿namespace URT.Model
+﻿using System;
+
+namespace URT.Model
 {
     class Car
     {
         private readonly IDriver _driver;
         private double _position;
+        private double _velocity;
+
+        public event Action<Car> PositionUpdated; 
 
         public Car(IDriver driver, double position)
         {
@@ -14,6 +19,19 @@
         public double Position
         {
             get { return _position; }
+        }
+
+        public void Drive()
+        {
+            _velocity = 0.01d;
+        }
+
+        public void Update(TimeSpan dt)
+        {
+            _position += _velocity * dt.TotalSeconds;
+
+            var tmp = PositionUpdated;
+            if (tmp != null) tmp(this);
         }
     }
 }
