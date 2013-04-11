@@ -55,6 +55,7 @@
     </ApplicationDefinition>
     <Compile Include="Model\Engine.cs" />
     <Compile Include="Model\ITrack.cs" />
+    <Compile Include="Model\StupidDriver.cs" />
     <Compile Include="ViewModel\CarViewModel.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>

@@ -19,15 +19,16 @@ namespace URT.Model
         public double Position { get { return _position; } }
         public double Velocity { get { return _velocity; } }
 
-        public void Drive(Car car)
+        public void Drive(Car next, ITrack track)
         {
-            double a = _driver.GetAcceleration(this, car);
+            double a = _driver.GetAcceleration(this, next, track);
             _velocity += a;
         }
 
-        public void Update(TimeSpan dt)
+        public void Update(TimeSpan dt, ITrack track)
         {
             _position += _velocity * dt.TotalSeconds;
+            while (_position > track.Length) _position -= track.Length;
 
             var tmp = PositionUpdated;
             if (tmp != null) tmp(this);

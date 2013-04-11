@@ -16,27 +16,19 @@ namespace URT.Model
 
         public IList<Car> Cars { get { return _cars; } }
 
-        private double Unwrap(double p)
-        {
-            var length = _track.Length;
-            while (p < 0) p += length;
-            while (p > length) p -= length;
-            return p;
-        }
-
         public void Update(TimeSpan dt)
         {
-            var carsByPosition = _cars.OrderBy(c => Unwrap(c.Position)).ToList();
+            var carsByPosition = _cars.OrderBy(c => c.Position).ToList();
 
             for (int i = 0; i < carsByPosition.Count; i++)
             {
                 int nextIndex = (i + 1 == carsByPosition.Count) ? 0 : i + 1;
-                carsByPosition[i].Drive(carsByPosition[nextIndex]);
+                carsByPosition[i].Drive(carsByPosition[nextIndex], _track);
             }
 
             foreach (var car in _cars)
             {
-                car.Update(dt);
+                car.Update(dt, _track);
             }
         }
     }
