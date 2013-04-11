@@ -15,5 +15,14 @@ namespace URT.ViewModel
         {
             return Math.Sin(2 * Math.PI * position) * 100d + 100d;
         }
+
+        public double MapAngle(double position)
+        {
+            const double fullCircle = 360d;
+            double a = fullCircle * position;
+            while (a > fullCircle) a -= fullCircle;
+            while (a < 0) a += fullCircle;
+            return a;
+        }
     }
 }

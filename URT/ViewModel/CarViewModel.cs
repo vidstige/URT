@@ -19,11 +19,12 @@ namespace URT.ViewModel
         {
             RaisePropertyChanged("X");
             RaisePropertyChanged("Y");
+            RaisePropertyChanged("Angle");
         }
 
         public double Angle
         {
-            get { return 0; }
+            get { return _track.MapAngle(_car.Position); }
         }
 
         public double X

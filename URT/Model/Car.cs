@@ -23,7 +23,7 @@ namespace URT.Model
 
         public void Drive()
         {
-            _velocity = 0.01d;
+            _velocity = 0.1d;
         }
 
         public void Update(TimeSpan dt)
