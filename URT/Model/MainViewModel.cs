@@ -1,10 +1,11 @@
 ﻿using System.Collections.ObjectModel;
+using URT.ViewModel;
 
 namespace URT.Model
 {
-    class MainViewModel: ViewModel
+    class MainViewModel: ViewModel.ViewModel
     {
-        private readonly ObservableCollection<Car> _cars = new ObservableCollection<Car>();
-        public ObservableCollection<Car> Cars { get { return _cars; } }
+        private readonly ObservableCollection<CarViewModel> _cars = new ObservableCollection<CarViewModel>();
+        public ObservableCollection<CarViewModel> Cars { get { return _cars; } }
     }
 }

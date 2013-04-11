@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-namespace URT.Model
+namespace URT.ViewModel
 {
     class ViewModel: INotifyPropertyChanged
     {
