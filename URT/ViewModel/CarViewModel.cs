@@ -4,39 +4,27 @@ namespace URT.ViewModel
 {
     class CarViewModel: ViewModel
     {
-        private double _x;
-        private double _y;
         private readonly Car _car;
+        private Track _track;
 
-        public CarViewModel(double x, double y, Car car)
+        public CarViewModel(Track track, Car car)
         {
-            _x = x;
-            _y = y;
+            _track = track;
             _car = car;
         }
 
         public double Angle
         {
-            get { return 23; }
+            get { return 0; }
         }
 
         public double X
         {
-            get { return _x; }
-            private set
-            {
-                _x = value;
-                RaisePropertyChanged("X");
-            }
+            get { return _track.MapX(_car.Position); }
         }
         public double Y
         {
-            get { return _y; }
-            private set
-            {
-                _y = value;
-                RaisePropertyChanged("Y");
-            }
+            get { return _track.MapY(_car.Position); }
         }
     }
 

@@ -13,9 +13,9 @@ namespace URT
         {
             InitializeComponent();
             var vm = new MainViewModel();
-            vm.Cars.Add(new CarViewModel(10, 10, null));
-            vm.Cars.Add(new CarViewModel(20, 30, null));
-            vm.Cars.Add(new CarViewModel(30, 80, null));
+            vm.Cars.Add(new CarViewModel(vm.Track, new Car(null, 0.2)));
+            vm.Cars.Add(new CarViewModel(vm.Track, new Car(null, 0.4)));
+            vm.Cars.Add(new CarViewModel(vm.Track, new Car(null, 0.8)));
             DataContext = vm;
         }
     }
