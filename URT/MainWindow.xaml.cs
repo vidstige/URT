@@ -36,9 +36,15 @@ namespace URT
 
         private class StupidDriver: IDriver
         {
+            private const double TargetVelocity = 0.2d;
+            private const double MaxAceleration = 0.1d;
+            
             public double GetAcceleration(Car car, Car next)
             {
-                return 0.01d;
+                var a = (TargetVelocity - car.Velocity);
+                if (a > MaxAceleration) a = MaxAceleration;
+                if (a < -MaxAceleration) a = -MaxAceleration;
+                return a;
             }
         }
 

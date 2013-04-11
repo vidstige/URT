@@ -16,10 +16,8 @@ namespace URT.Model
             _position = position;
         }
 
-        public double Position
-        {
-            get { return _position; }
-        }
+        public double Position { get { return _position; } }
+        public double Velocity { get { return _velocity; } }
 
         public void Drive(Car car)
         {
