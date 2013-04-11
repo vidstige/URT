@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace URT.Model
+﻿namespace URT.Model
 {
     interface IDriver
     {
+        double GetAcceleration(Car car, Car nextCar);
     }
 }

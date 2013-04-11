@@ -21,9 +21,10 @@ namespace URT.Model
             get { return _position; }
         }
 
-        public void Drive()
+        public void Drive(Car car)
         {
-            _velocity = 0.1d;
+            double a = _driver.GetAcceleration(this, car);
+            _velocity += a;
         }
 
         public void Update(TimeSpan dt)

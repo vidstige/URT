@@ -20,7 +20,7 @@ namespace URT
             InitializeComponent();
             var vm = new MainViewModel();
             _driver = new StupidDriver();
-            _engine = new Engine();
+            _engine = new Engine(vm.Track);
             _engine.Cars.Add(new Car(_driver, 0.2));
             _engine.Cars.Add(new Car(_driver, 0.4));
             _engine.Cars.Add(new Car(_driver, 0.8));
@@ -34,8 +34,12 @@ namespace URT
             _dispatcherTimer.Start();
         }
 
-        public class StupidDriver: IDriver
+        private class StupidDriver: IDriver
         {
+            public double GetAcceleration(Car car, Car next)
+            {
+                return 0.01d;
+            }
         }
 
         private void Tick(object sender, EventArgs e)
